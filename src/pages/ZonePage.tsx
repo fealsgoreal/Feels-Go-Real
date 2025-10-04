@@ -6,7 +6,7 @@ import { updateZoneProgress } from '@/lib/storage';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { ArrowLeft, Coins, CheckCircle2, ImageIcon } from 'lucide-react';
+import { ArrowLeft, Coins, CheckCircle2 } from 'lucide-react';
 import { toast } from 'sonner';
 
 const ZonePage = () => {
@@ -134,19 +134,6 @@ const ZonePage = () => {
           <div className="mb-6">
             <Progress value={progress} className="h-2" />
           </div>
-
-          {/* Character Art Placeholder */}
-          <Card className="p-8 mb-6 bg-muted/50">
-            <div className="flex flex-col items-center justify-center py-12">
-              <div className="w-64 h-64 rounded-lg border-2 border-dashed border-muted-foreground/30 flex items-center justify-center bg-background/50">
-                <div className="text-center">
-                  <ImageIcon className="w-16 h-16 mx-auto mb-4 text-muted-foreground/50" />
-                  <p className="text-sm text-muted-foreground">Character Art Placeholder</p>
-                  <p className="text-xs text-muted-foreground/70 mt-1">{zone.name}</p>
-                </div>
-              </div>
-            </div>
-          </Card>
 
           <Card className="p-8">
             <h2 className="text-2xl font-bold mb-6">{questions[currentQuestion].text}</h2>
