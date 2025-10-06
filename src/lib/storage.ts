@@ -17,7 +17,19 @@ export const loadProgress = (): UserProgress | null => {
 
 export const saveProgress = (progress: UserProgress): void => {
   try {
+    // Save to localStorage as backup
     localStorage.setItem(STORAGE_KEYS.PROGRESS, JSON.stringify(progress));
+    
+    // Auto-download to disk
+    const blob = new Blob([JSON.stringify(progress, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `zone-quest-progress-${new Date().toISOString().split('T')[0]}.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   } catch (error) {
     console.error('Failed to save progress:', error);
   }
@@ -68,7 +80,19 @@ export const loadContest = (): ContestMode | null => {
 
 export const saveContest = (contest: ContestMode): void => {
   try {
+    // Save to localStorage as backup
     localStorage.setItem(STORAGE_KEYS.CONTEST, JSON.stringify(contest));
+    
+    // Auto-download to disk
+    const blob = new Blob([JSON.stringify(contest, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `zone-quest-contest-${new Date().toISOString().split('T')[0]}.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   } catch (error) {
     console.error('Failed to save contest:', error);
   }
