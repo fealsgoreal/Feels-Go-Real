@@ -25,7 +25,7 @@ export const saveProgress = (progress: UserProgress): void => {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `zone-quest-progress-${new Date().toISOString().split('T')[0]}.json`;
+    link.download = 'zone-quest-progress.json';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -88,7 +88,7 @@ export const saveContest = (contest: ContestMode): void => {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `zone-quest-contest-${new Date().toISOString().split('T')[0]}.json`;
+    link.download = 'zone-quest-contest.json';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
