@@ -7,7 +7,8 @@ import ZoneCard from '@/components/ZoneCard';
 import ProgressStats from '@/components/ProgressStats';
 import ContestSelector from '@/components/ContestSelector';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Sparkles } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Sparkles, Info } from 'lucide-react';
 
 const Home = () => {
   const [progress, setProgress] = useState<UserProgress | null>(null);
@@ -48,6 +49,18 @@ const Home = () => {
         {/* Contest Section */}
         <div className="mb-8">
           <ContestSelector />
+        </div>
+
+        {/* About Button */}
+        <div className="mb-8 flex justify-center">
+          <Button
+            variant="outline"
+            onClick={() => window.open('/about', '_blank')}
+            className="gap-2"
+          >
+            <Info className="w-4 h-4" />
+            About Zone Quest
+          </Button>
         </div>
 
         {/* Zones Tabs */}
