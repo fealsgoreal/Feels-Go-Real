@@ -12,8 +12,7 @@ export interface Zone {
 export interface Question {
   id: string;
   text: string;
-  options: string[];
-  correctAnswer: number;
+  acceptedAnswers?: string[]; // Optional: for validation
 }
 
 export interface ZoneProgress {

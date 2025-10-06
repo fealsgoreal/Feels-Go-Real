@@ -1,45 +1,25 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ZoneType, Question } from '@/types/zone';
+import { ZoneType } from '@/types/zone';
 import { getZone } from '@/lib/zones';
+import { getQuestionsForZone } from '@/lib/questions';
 import { updateZoneProgress } from '@/lib/storage';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { ArrowLeft, Coins, CheckCircle2 } from 'lucide-react';
+import { Textarea } from '@/components/ui/textarea';
+import { ArrowLeft, Coins } from 'lucide-react';
 import { toast } from 'sonner';
 
 const ZonePage = () => {
   const { zoneId } = useParams<{ zoneId: ZoneType }>();
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
-  const [showResult, setShowResult] = useState(false);
+  const [userAnswer, setUserAnswer] = useState('');
   const [earnedCoins, setEarnedCoins] = useState(0);
 
   const zone = zoneId ? getZone(zoneId) : null;
-
-  // Sample questions - will be replaced with real content
-  const questions: Question[] = [
-    {
-      id: '1',
-      text: 'What is the main characteristic of this zone?',
-      options: ['Speed', 'Wisdom', 'Strength', 'Magic'],
-      correctAnswer: 1
-    },
-    {
-      id: '2',
-      text: 'How do you master this zone?',
-      options: ['Practice daily', 'Study theory', 'Compete with others', 'Meditate'],
-      correctAnswer: 0
-    },
-    {
-      id: '3',
-      text: 'What reward awaits those who complete this zone?',
-      options: ['Gold coins', 'New abilities', 'Special badge', 'All of the above'],
-      correctAnswer: 3
-    }
-  ];
+  const questions = zoneId ? getQuestionsForZone(zoneId) : [];
 
   if (!zone) {
     return (
@@ -49,43 +29,31 @@ const ZonePage = () => {
     );
   }
 
-  const handleAnswerSelect = (index: number) => {
-    if (showResult) return;
-    setSelectedAnswer(index);
-  };
-
   const handleSubmit = () => {
-    if (selectedAnswer === null) return;
-
-    const isCorrect = selectedAnswer === questions[currentQuestion].correctAnswer;
-    setShowResult(true);
-
-    if (isCorrect) {
-      const coins = 10;
-      setEarnedCoins(prev => prev + coins);
-      toast.success('Correct!', {
-        description: `You earned ${coins} coins!`,
-        icon: '🎉'
-      });
-    } else {
-      toast.error('Not quite right', {
-        description: 'Try again next time!'
-      });
+    if (!userAnswer.trim()) {
+      toast.error('Please provide an answer');
+      return;
     }
-  };
 
-  const handleNext = () => {
+    const coins = 10;
+    setEarnedCoins(prev => prev + coins);
+    
+    toast.success('Answer submitted!', {
+      description: `You earned ${coins} coins!`,
+      icon: '🎉'
+    });
+
+    // Move to next question or complete
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(prev => prev + 1);
-      setSelectedAnswer(null);
-      setShowResult(false);
+      setUserAnswer('');
     } else {
       // Complete zone
       if (zoneId) {
-        updateZoneProgress(zoneId, earnedCoins);
+        updateZoneProgress(zoneId, earnedCoins + coins);
       }
       toast.success('Zone completed!', {
-        description: `Total coins earned: ${earnedCoins}`,
+        description: `Total coins earned: ${earnedCoins + coins}`,
         icon: '✨'
       });
       navigate('/');
@@ -138,52 +106,24 @@ const ZonePage = () => {
           <Card className="p-8">
             <h2 className="text-2xl font-bold mb-6">{questions[currentQuestion].text}</h2>
 
-            <div className="space-y-3 mb-6">
-              {questions[currentQuestion].options.map((option, index) => {
-                const isSelected = selectedAnswer === index;
-                const isCorrect = index === questions[currentQuestion].correctAnswer;
-                const showCorrect = showResult && isCorrect;
-                const showWrong = showResult && isSelected && !isCorrect;
-
-                return (
-                  <button
-                    key={index}
-                    onClick={() => handleAnswerSelect(index)}
-                    disabled={showResult}
-                    className={`w-full p-4 text-left rounded-lg border-2 transition-all ${
-                      showCorrect
-                        ? 'border-green-500 bg-green-50'
-                        : showWrong
-                        ? 'border-red-500 bg-red-50'
-                        : isSelected
-                        ? 'border-primary bg-primary/5'
-                        : 'border-border hover:border-primary/50'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="font-medium">{option}</span>
-                      {showCorrect && <CheckCircle2 className="w-5 h-5 text-green-600" />}
-                    </div>
-                  </button>
-                );
-              })}
+            <div className="mb-6">
+              <Textarea
+                value={userAnswer}
+                onChange={(e) => setUserAnswer(e.target.value)}
+                placeholder="Type your answer here..."
+                className="min-h-[150px] text-base"
+              />
             </div>
 
-            <div className="flex justify-end gap-3">
-              {!showResult ? (
-                <Button
-                  onClick={handleSubmit}
-                  disabled={selectedAnswer === null}
-                  size="lg"
-                  className={zone.gradient}
-                >
-                  Submit Answer
-                </Button>
-              ) : (
-                <Button onClick={handleNext} size="lg" className={zone.gradient}>
-                  {currentQuestion < questions.length - 1 ? 'Next Question' : 'Complete Zone'}
-                </Button>
-              )}
+            <div className="flex justify-end">
+              <Button
+                onClick={handleSubmit}
+                disabled={!userAnswer.trim()}
+                size="lg"
+                className={zone.gradient}
+              >
+                {currentQuestion < questions.length - 1 ? 'Submit & Continue' : 'Submit & Complete'}
+              </Button>
             </div>
           </Card>
         </div>
