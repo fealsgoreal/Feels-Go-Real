@@ -39,24 +39,24 @@ All colors MUST be HSL.
     --radius: 1rem;
 
     /* Zone Colors */
-    --zone-fire: 0 85% 60%;
-    --zone-fire-light: 0 85% 95%;
-    --zone-ocean: 200 85% 55%;
-    --zone-ocean-light: 200 85% 95%;
-    --zone-forest: 145 65% 50%;
-    --zone-forest-light: 145 65% 95%;
-    --zone-mystic: 270 75% 60%;
-    --zone-mystic-light: 270 75% 95%;
-    --zone-solar: 35 95% 58%;
-    --zone-solar-light: 35 95% 95%;
+    --zone-anger: 0 85% 60%;
+    --zone-anger-light: 0 85% 95%;
+    --zone-jealousy: 120 45% 45%;
+    --zone-jealousy-light: 120 45% 95%;
+    --zone-pride: 280 65% 60%;
+    --zone-pride-light: 280 65% 95%;
+    --zone-anxiety: 45 85% 55%;
+    --zone-anxiety-light: 45 85% 95%;
+    --zone-fear: 240 50% 40%;
+    --zone-fear-light: 240 50% 95%;
 
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(230 90% 65%) 100%);
-    --gradient-fire: linear-gradient(135deg, hsl(0 85% 60%) 0%, hsl(20 90% 65%) 100%);
-    --gradient-ocean: linear-gradient(135deg, hsl(200 85% 55%) 0%, hsl(220 80% 60%) 100%);
-    --gradient-forest: linear-gradient(135deg, hsl(145 65% 50%) 0%, hsl(165 60% 55%) 100%);
-    --gradient-mystic: linear-gradient(135deg, hsl(270 75% 60%) 0%, hsl(290 70% 65%) 100%);
-    --gradient-solar: linear-gradient(135deg, hsl(35 95% 58%) 0%, hsl(50 90% 60%) 100%);
+    --gradient-anger: linear-gradient(135deg, hsl(0 85% 60%) 0%, hsl(20 90% 65%) 100%);
+    --gradient-jealousy: linear-gradient(135deg, hsl(120 45% 45%) 0%, hsl(140 50% 50%) 100%);
+    --gradient-pride: linear-gradient(135deg, hsl(280 65% 60%) 0%, hsl(300 70% 65%) 100%);
+    --gradient-anxiety: linear-gradient(135deg, hsl(45 85% 55%) 0%, hsl(60 80% 60%) 100%);
+    --gradient-fear: linear-gradient(135deg, hsl(240 50% 40%) 0%, hsl(260 55% 45%) 100%);
 
     /* Effects */
     --shadow-glow: 0 8px 32px -8px hsl(262 83% 58% / 0.3);
@@ -123,24 +123,24 @@ All colors MUST be HSL.
     background: var(--gradient-primary);
   }
   
-  .gradient-fire {
-    background: var(--gradient-fire);
+  .gradient-anger {
+    background: var(--gradient-anger);
   }
   
-  .gradient-ocean {
-    background: var(--gradient-ocean);
+  .gradient-jealousy {
+    background: var(--gradient-jealousy);
   }
   
-  .gradient-forest {
-    background: var(--gradient-forest);
+  .gradient-pride {
+    background: var(--gradient-pride);
   }
   
-  .gradient-mystic {
-    background: var(--gradient-mystic);
+  .gradient-anxiety {
+    background: var(--gradient-anxiety);
   }
   
-  .gradient-solar {
-    background: var(--gradient-solar);
+  .gradient-fear {
+    background: var(--gradient-fear);
   }
 
   .animate-float {

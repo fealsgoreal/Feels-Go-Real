@@ -1,7 +1,7 @@
 {
-  "name": "Zone Quest - Learning Adventure",
-  "short_name": "Zone Quest",
-  "description": "Embark on a gamified learning journey through 5 unique zones",
+  "name": "Feels Go Real - Emotional Awareness",
+  "short_name": "Feels Go Real",
+  "description": "Explore and understand your emotions through 5 unique zones",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
