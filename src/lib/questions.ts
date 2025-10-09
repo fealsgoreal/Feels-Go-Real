@@ -14,6 +14,14 @@ export const zoneQuestions: Record<ZoneType, Question[]> = {
       id: 'anger-3',
       text: 'How do you calm yourself when you feel angry?',
     },
+    {
+      id: 'anger-4',
+      text: 'What would you tell someone struggling with anger?',
+    },
+    {
+      id: 'anger-5',
+      text: 'How has understanding your anger helped you grow?',
+    },
   ],
   jealousy: [
     {
@@ -27,6 +35,14 @@ export const zoneQuestions: Record<ZoneType, Question[]> = {
     {
       id: 'jealousy-3',
       text: 'How can you transform jealousy into motivation?',
+    },
+    {
+      id: 'jealousy-4',
+      text: 'Describe a time when jealousy led to positive change.',
+    },
+    {
+      id: 'jealousy-5',
+      text: 'What have you learned about yourself through jealousy?',
     },
   ],
   pride: [
@@ -42,6 +58,14 @@ export const zoneQuestions: Record<ZoneType, Question[]> = {
       id: 'pride-3',
       text: 'When has pride held you back from growth?',
     },
+    {
+      id: 'pride-4',
+      text: 'How do you balance healthy pride with humility?',
+    },
+    {
+      id: 'pride-5',
+      text: 'What role does pride play in your self-esteem?',
+    },
   ],
   anxiety: [
     {
@@ -56,6 +80,14 @@ export const zoneQuestions: Record<ZoneType, Question[]> = {
       id: 'anxiety-3',
       text: 'What would you say to comfort your anxious self?',
     },
+    {
+      id: 'anxiety-4',
+      text: 'When has anxiety actually helped protect you?',
+    },
+    {
+      id: 'anxiety-5',
+      text: 'How has your relationship with anxiety changed over time?',
+    },
   ],
   fear: [
     {
@@ -69,6 +101,14 @@ export const zoneQuestions: Record<ZoneType, Question[]> = {
     {
       id: 'fear-3',
       text: 'How does fear protect or limit you?',
+    },
+    {
+      id: 'fear-4',
+      text: 'What small step can you take to face a current fear?',
+    },
+    {
+      id: 'fear-5',
+      text: 'What have your fears taught you about courage?',
     },
   ],
 };
