@@ -11,8 +11,8 @@ const About = () => {
               <Sparkles className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold">About Zone Quest</h1>
-              <p className="text-sm text-muted-foreground">Your learning adventure platform</p>
+              <h1 className="text-2xl font-bold">About Feels Go Real</h1>
+              <p className="text-sm text-muted-foreground">Your emotional awareness platform</p>
             </div>
           </div>
         </div>
@@ -22,11 +22,11 @@ const About = () => {
         <div className="space-y-8">
           {/* Introduction */}
           <section className="prose dark:prose-invert max-w-none">
-            <h2 className="text-3xl font-bold mb-4">Welcome to Zone Quest</h2>
+            <h2 className="text-3xl font-bold mb-4">Welcome to Feels Go Real</h2>
             <p className="text-lg text-muted-foreground">
-              Zone Quest is an interactive learning platform designed to make your educational journey 
-              engaging, structured, and rewarding. Progress through different learning zones, complete 
-              challenges, and track your achievements along the way.
+              Feels Go Real is an interactive emotional awareness platform designed to help you explore, 
+              understand, and process your emotions. Journey through different emotional zones, reflect 
+              on meaningful questions, and track your personal growth along the way.
             </p>
           </section>
 
@@ -40,10 +40,10 @@ const About = () => {
                     <Target className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Learning Zones</h3>
+                    <h3 className="font-semibold text-lg mb-2">Emotional Zones</h3>
                     <p className="text-muted-foreground">
-                      Explore multiple themed zones, each with unique challenges and content 
-                      designed to enhance your skills progressively.
+                      Explore five emotional zones - Anger, Jealousy, Pride, Anxiety, and Fear - 
+                      each designed to help you understand and process these feelings.
                     </p>
                   </div>
                 </div>
@@ -57,8 +57,8 @@ const About = () => {
                   <div>
                     <h3 className="font-semibold text-lg mb-2">Contest Mode</h3>
                     <p className="text-muted-foreground">
-                      Challenge yourself with timed contests in Daily, Weekly, or Monthly formats. 
-                      Earn points and track your progress toward specific goals.
+                      Challenge yourself with timed reflection challenges. Set goals and commit to 
+                      regular emotional check-ins through Daily, Weekly, or Monthly formats.
                     </p>
                   </div>
                 </div>
@@ -72,8 +72,8 @@ const About = () => {
                   <div>
                     <h3 className="font-semibold text-lg mb-2">Progress Tracking</h3>
                     <p className="text-muted-foreground">
-                      Monitor your achievements with detailed statistics including total points, 
-                      current streak, and completion rates for each zone.
+                      Monitor your emotional journey with detailed statistics including total reflections, 
+                      current streak, and completion rates for each emotional zone.
                     </p>
                   </div>
                 </div>
@@ -105,8 +105,8 @@ const About = () => {
                   1
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">Choose Your Zone</h3>
-                  <p>Select from various learning zones based on your interests and goals.</p>
+                  <h3 className="font-semibold text-foreground mb-1">Choose Your Emotion</h3>
+                  <p>Select an emotional zone that resonates with what you're feeling or want to explore.</p>
                 </div>
               </div>
 
@@ -115,8 +115,8 @@ const About = () => {
                   2
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">Complete Challenges</h3>
-                  <p>Work through exercises and challenges at your own pace within each zone.</p>
+                  <h3 className="font-semibold text-foreground mb-1">Reflect on Questions</h3>
+                  <p>Answer thoughtful questions designed to help you process and understand your emotions.</p>
                 </div>
               </div>
 
@@ -125,8 +125,8 @@ const About = () => {
                   3
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">Join Contests</h3>
-                  <p>Optionally participate in timed contests to push yourself and earn bonus points.</p>
+                  <h3 className="font-semibold text-foreground mb-1">Set Personal Goals</h3>
+                  <p>Optionally join contests to commit to regular emotional reflection and self-awareness practices.</p>
                 </div>
               </div>
 
@@ -135,8 +135,8 @@ const About = () => {
                   4
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">Track Progress</h3>
-                  <p>Monitor your achievements, maintain your streak, and celebrate your growth.</p>
+                  <h3 className="font-semibold text-foreground mb-1">Track Your Journey</h3>
+                  <p>Monitor your emotional growth, maintain your reflection streak, and celebrate your self-awareness.</p>
                 </div>
               </div>
             </div>
@@ -145,11 +145,11 @@ const About = () => {
           {/* Footer */}
           <section className="text-center pt-8 border-t">
             <p className="text-muted-foreground">
-              Ready to start your learning journey? Head back to the{' '}
+              Ready to start your emotional awareness journey? Head back to the{' '}
               <a href="/" className="text-primary hover:underline font-semibold">
                 home page
               </a>{' '}
-              and begin exploring!
+              and begin exploring your emotions!
             </p>
           </section>
         </div>
