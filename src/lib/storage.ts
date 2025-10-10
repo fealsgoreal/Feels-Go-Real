@@ -30,11 +30,11 @@ export const initializeProgress = (): UserProgress => {
     currentStreak: 0,
     bestStreak: 0,
     zones: [
-      { zoneId: 'fire', questionsCompleted: 0, totalQuestions: 3, coins: 0, lastVisited: new Date().toISOString() },
-      { zoneId: 'ocean', questionsCompleted: 0, totalQuestions: 3, coins: 0, lastVisited: new Date().toISOString() },
-      { zoneId: 'forest', questionsCompleted: 0, totalQuestions: 3, coins: 0, lastVisited: new Date().toISOString() },
-      { zoneId: 'mystic', questionsCompleted: 0, totalQuestions: 3, coins: 0, lastVisited: new Date().toISOString() },
-      { zoneId: 'solar', questionsCompleted: 0, totalQuestions: 3, coins: 0, lastVisited: new Date().toISOString() }
+      { zoneId: 'anger', questionsCompleted: 0, totalQuestions: 3, coins: 0, lastVisited: new Date().toISOString() },
+      { zoneId: 'jealousy', questionsCompleted: 0, totalQuestions: 3, coins: 0, lastVisited: new Date().toISOString() },
+      { zoneId: 'pride', questionsCompleted: 0, totalQuestions: 3, coins: 0, lastVisited: new Date().toISOString() },
+      { zoneId: 'anxiety', questionsCompleted: 0, totalQuestions: 3, coins: 0, lastVisited: new Date().toISOString() },
+      { zoneId: 'fear', questionsCompleted: 0, totalQuestions: 3, coins: 0, lastVisited: new Date().toISOString() }
     ]
   };
   saveProgress(progress);

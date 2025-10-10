@@ -1,4 +1,4 @@
-export type ZoneType = 'fire' | 'ocean' | 'forest' | 'mystic' | 'solar';
+export type ZoneType = 'anger' | 'jealousy' | 'pride' | 'anxiety' | 'fear';
 
 export interface Zone {
   id: ZoneType;

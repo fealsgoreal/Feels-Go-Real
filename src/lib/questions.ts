@@ -1,74 +1,74 @@
 import { Question, ZoneType } from '@/types/zone';
 
 export const zoneQuestions: Record<ZoneType, Question[]> = {
-  fire: [
+  anger: [
     {
-      id: 'fire-1',
-      text: 'What fuels your inner fire and keeps you motivated?',
+      id: 'anger-1',
+      text: 'What triggers your anger most frequently?',
     },
     {
-      id: 'fire-2',
-      text: 'Describe a challenge you overcame through determination.',
+      id: 'anger-2',
+      text: 'How do you express anger in healthy ways?',
     },
     {
-      id: 'fire-3',
-      text: 'What does passion mean to you?',
-    },
-  ],
-  ocean: [
-    {
-      id: 'ocean-1',
-      text: 'How do you find calm in turbulent times?',
-    },
-    {
-      id: 'ocean-2',
-      text: 'What depths of wisdom have you discovered in your journey?',
-    },
-    {
-      id: 'ocean-3',
-      text: 'Describe a moment when you went with the flow.',
+      id: 'anger-3',
+      text: 'What have you learned from your anger?',
     },
   ],
-  forest: [
+  jealousy: [
     {
-      id: 'forest-1',
-      text: 'What new skills or knowledge are you currently growing?',
+      id: 'jealousy-1',
+      text: 'When do you feel most envious of others?',
     },
     {
-      id: 'forest-2',
-      text: 'How do you nurture your personal development?',
+      id: 'jealousy-2',
+      text: 'How does comparison affect your self-worth?',
     },
     {
-      id: 'forest-3',
-      text: 'Describe a lesson you learned from nature or observation.',
-    },
-  ],
-  mystic: [
-    {
-      id: 'mystic-1',
-      text: 'What mysteries or unknowns fascinate you the most?',
-    },
-    {
-      id: 'mystic-2',
-      text: 'Describe an intuition or insight that proved valuable.',
-    },
-    {
-      id: 'mystic-3',
-      text: 'What hidden potential do you believe you possess?',
+      id: 'jealousy-3',
+      text: 'What would happen if you stopped comparing yourself?',
     },
   ],
-  solar: [
+  pride: [
     {
-      id: 'solar-1',
-      text: 'What brings light and clarity to your life?',
+      id: 'pride-1',
+      text: 'What are you most proud of about yourself?',
     },
     {
-      id: 'solar-2',
-      text: 'How do you illuminate the path for others?',
+      id: 'pride-2',
+      text: 'When does pride become a barrier for you?',
     },
     {
-      id: 'solar-3',
-      text: 'Describe a moment when everything became clear to you.',
+      id: 'pride-3',
+      text: 'How do you balance confidence with humility?',
+    },
+  ],
+  anxiety: [
+    {
+      id: 'anxiety-1',
+      text: 'What worries keep you up at night?',
+    },
+    {
+      id: 'anxiety-2',
+      text: 'How do you calm yourself when anxious?',
+    },
+    {
+      id: 'anxiety-3',
+      text: 'What would life look like without constant worry?',
+    },
+  ],
+  fear: [
+    {
+      id: 'fear-1',
+      text: 'What is your deepest fear?',
+    },
+    {
+      id: 'fear-2',
+      text: 'How has fear held you back?',
+    },
+    {
+      id: 'fear-3',
+      text: 'What would you do if you had no fear?',
     },
   ],
 };
