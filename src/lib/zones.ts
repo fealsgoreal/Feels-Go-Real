@@ -2,44 +2,44 @@ import { Zone, ZoneType } from '@/types/zone';
 
 export const zones: Zone[] = [
   {
-    id: 'anger',
-    name: 'Anger Zone',
-    color: 'zone-anger',
-    gradient: 'gradient-anger',
-    icon: '😠',
-    description: 'Understand and process your anger'
+    id: 'fire',
+    name: 'Fire Zone',
+    color: 'zone-fire',
+    gradient: 'gradient-fire',
+    icon: '🔥',
+    description: 'Master the flames of knowledge'
   },
   {
-    id: 'jealousy',
-    name: 'Jealousy Zone',
-    color: 'zone-jealousy',
-    gradient: 'gradient-jealousy',
-    icon: '😒',
-    description: 'Explore feelings of jealousy'
+    id: 'ocean',
+    name: 'Ocean Zone',
+    color: 'zone-ocean',
+    gradient: 'gradient-ocean',
+    icon: '🌊',
+    description: 'Dive deep into wisdom'
   },
   {
-    id: 'pride',
-    name: 'Pride Zone',
-    color: 'zone-pride',
-    gradient: 'gradient-pride',
-    icon: '😌',
-    description: 'Reflect on pride and self-worth'
+    id: 'forest',
+    name: 'Forest Zone',
+    color: 'zone-forest',
+    gradient: 'gradient-forest',
+    icon: '🌲',
+    description: 'Grow your understanding'
   },
   {
-    id: 'anxiety',
-    name: 'Anxiety Zone',
-    color: 'zone-anxiety',
-    gradient: 'gradient-anxiety',
-    icon: '😰',
-    description: 'Navigate through anxiety'
+    id: 'mystic',
+    name: 'Mystic Zone',
+    color: 'zone-mystic',
+    gradient: 'gradient-mystic',
+    icon: '✨',
+    description: 'Unlock mystical secrets'
   },
   {
-    id: 'fear',
-    name: 'Fear Zone',
-    color: 'zone-fear',
-    gradient: 'gradient-fear',
-    icon: '😨',
-    description: 'Face your fears head-on'
+    id: 'solar',
+    name: 'Solar Zone',
+    color: 'zone-solar',
+    gradient: 'gradient-solar',
+    icon: '☀️',
+    description: 'Illuminate your path'
   }
 ];
 
