@@ -32,8 +32,8 @@ const Home = () => {
                 <Sparkles className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold">Zone Quest</h1>
-                <p className="text-sm text-muted-foreground">Your learning adventure awaits</p>
+                <h1 className="text-2xl font-bold">Feels Go Real</h1>
+                <p className="text-sm text-muted-foreground">Your emotional growth journey</p>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@ const Home = () => {
             className="gap-2"
           >
             <Info className="w-4 h-4" />
-            About Zone Quest
+            About Feels Go Real
           </Button>
         </div>
 

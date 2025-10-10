@@ -1,8 +1,8 @@
 import { UserProgress, ContestMode, ZoneType } from '@/types/zone';
 
 const STORAGE_KEYS = {
-  PROGRESS: 'zone_quest_progress',
-  CONTEST: 'zone_quest_contest'
+  PROGRESS: 'feels_go_real_progress',
+  CONTEST: 'feels_go_real_contest'
 };
 
 export const loadProgress = (): UserProgress | null => {
@@ -83,7 +83,7 @@ export const downloadProgress = (): void => {
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
-  link.download = `zone-quest-progress-${new Date().toISOString().split('T')[0]}.json`;
+  link.download = `feels-go-real-progress-${new Date().toISOString().split('T')[0]}.json`;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
