@@ -7,9 +7,11 @@ interface SplashProps {
 
 const Splash = ({ onComplete }: SplashProps) => {
   useEffect(() => {
-    const timer = setTimeout(onComplete, 2500);
+    const timer = setTimeout(() => {
+      onComplete();
+    }, 2500);
     return () => clearTimeout(timer);
-  }, [onComplete]);
+  }, []);
 
   return (
     <div className="min-h-screen flex items-center justify-center gradient-primary">
