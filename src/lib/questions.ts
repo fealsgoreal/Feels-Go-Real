@@ -60,15 +60,23 @@ export const zoneQuestions: Record<ZoneType, Question[]> = {
   fear: [
     {
       id: 'fear-1',
-      text: 'What is your deepest fear?',
+      text: 'What is a fear that got between you and a goal recently?',
     },
     {
       id: 'fear-2',
-      text: 'How has fear held you back?',
+      text: 'What is the goal and why do you want it?',
     },
     {
       id: 'fear-3',
-      text: 'What would you do if you had no fear?',
+      text: 'Why did you get scared?',
+    },
+    {
+      id: 'fear-4',
+      text: 'What are the consequences of that?',
+    },
+    {
+      id: 'fear-5',
+      text: 'Would the consequences teach you or show you anything that could be helpful in the future?',
     },
   ],
 };
