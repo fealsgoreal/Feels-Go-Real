@@ -35,16 +35,24 @@ const ZonePage = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(prev => prev + 1);
     } else {
-      // Complete zone
+      // Complete zone - award 1 point for completion
       if (zoneId) {
-        updateZoneProgress(zoneId, earnedCoins + coins);
+        updateZoneProgress(zoneId, earnedCoins + coins, 1);
       }
-      toast.success('Zone completed!', {
+      toast.success('Zone completed! +1 point', {
         description: `Total coins earned: ${earnedCoins + coins}`,
         icon: '✨'
       });
       navigate('/');
     }
+  };
+
+  const handleExit = () => {
+    // Exit without completion - no points awarded
+    toast.info('Progress not saved', {
+      description: 'Complete all questions to earn your point!',
+    });
+    navigate('/');
   };
 
   const progress = ((currentQuestion + 1) / questions.length) * 100;
@@ -57,10 +65,10 @@ const ZonePage = () => {
           <Button
             variant="ghost"
             className="mb-4 text-white hover:bg-white/20"
-            onClick={() => navigate('/')}
+            onClick={handleExit}
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Home
+            Exit (No Points)
           </Button>
           
           <div className="flex items-center gap-4 mb-6">

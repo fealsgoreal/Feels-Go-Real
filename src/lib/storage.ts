@@ -41,7 +41,7 @@ export const initializeProgress = (): UserProgress => {
   return progress;
 };
 
-export const updateZoneProgress = (zoneId: ZoneType, coinsEarned: number): void => {
+export const updateZoneProgress = (zoneId: ZoneType, coinsEarned: number, pointsEarned: number): void => {
   const progress = loadProgress() || initializeProgress();
   const zoneProgress = progress.zones.find(z => z.zoneId === zoneId);
   
@@ -52,7 +52,7 @@ export const updateZoneProgress = (zoneId: ZoneType, coinsEarned: number): void 
   }
   
   progress.totalCoins += coinsEarned;
-  progress.totalPoints += coinsEarned * 10;
+  progress.totalPoints += pointsEarned;
   saveProgress(progress);
 };
 
