@@ -7,7 +7,6 @@ import { updateZoneProgress } from '@/lib/storage';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { Textarea } from '@/components/ui/textarea';
 import { ArrowLeft, Coins } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -15,7 +14,6 @@ const ZonePage = () => {
   const { zoneId } = useParams<{ zoneId: ZoneType }>();
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [userAnswer, setUserAnswer] = useState('');
   const [earnedCoins, setEarnedCoins] = useState(0);
 
   const zone = zoneId ? getZone(zoneId) : null;
@@ -29,24 +27,13 @@ const ZonePage = () => {
     );
   }
 
-  const handleSubmit = () => {
-    if (!userAnswer.trim()) {
-      toast.error('Please provide an answer');
-      return;
-    }
-
+  const handleNext = () => {
     const coins = 10;
     setEarnedCoins(prev => prev + coins);
-    
-    toast.success('Answer submitted!', {
-      description: `You earned ${coins} coins!`,
-      icon: '🎉'
-    });
 
     // Move to next question or complete
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(prev => prev + 1);
-      setUserAnswer('');
     } else {
       // Complete zone
       if (zoneId) {
@@ -106,23 +93,17 @@ const ZonePage = () => {
           <Card className="p-8">
             <h2 className="text-2xl font-bold mb-6">{questions[currentQuestion].text}</h2>
 
-            <div className="mb-6">
-              <Textarea
-                value={userAnswer}
-                onChange={(e) => setUserAnswer(e.target.value)}
-                placeholder="Type your answer here..."
-                className="min-h-[150px] text-base"
-              />
+            <div className="mb-8 p-6 bg-muted/50 rounded-lg text-center">
+              <p className="text-lg text-muted-foreground italic">Answer in your head</p>
             </div>
 
             <div className="flex justify-end">
               <Button
-                onClick={handleSubmit}
-                disabled={!userAnswer.trim()}
+                onClick={handleNext}
                 size="lg"
                 className={zone.gradient}
               >
-                {currentQuestion < questions.length - 1 ? 'Submit & Continue' : 'Submit & Complete'}
+                When ready, click next
               </Button>
             </div>
           </Card>

@@ -14,6 +14,14 @@ export const zoneQuestions: Record<ZoneType, Question[]> = {
       id: 'anger-3',
       text: 'What have you learned from your anger?',
     },
+    {
+      id: 'anger-4',
+      text: 'When was the last time anger helped you set a boundary?',
+    },
+    {
+      id: 'anger-5',
+      text: 'How can you transform your anger into positive action?',
+    },
   ],
   jealousy: [
     {
@@ -27,6 +35,14 @@ export const zoneQuestions: Record<ZoneType, Question[]> = {
     {
       id: 'jealousy-3',
       text: 'What would happen if you stopped comparing yourself?',
+    },
+    {
+      id: 'jealousy-4',
+      text: 'What does your jealousy reveal about your deepest desires?',
+    },
+    {
+      id: 'jealousy-5',
+      text: 'How can you celebrate others while honoring your own journey?',
     },
   ],
   pride: [
@@ -42,6 +58,14 @@ export const zoneQuestions: Record<ZoneType, Question[]> = {
       id: 'pride-3',
       text: 'How do you balance confidence with humility?',
     },
+    {
+      id: 'pride-4',
+      text: 'When has asking for help made you stronger, not weaker?',
+    },
+    {
+      id: 'pride-5',
+      text: 'What would change if you let go of needing to be right?',
+    },
   ],
   anxiety: [
     {
@@ -55,6 +79,14 @@ export const zoneQuestions: Record<ZoneType, Question[]> = {
     {
       id: 'anxiety-3',
       text: 'What would life look like without constant worry?',
+    },
+    {
+      id: 'anxiety-4',
+      text: 'Which of your worries have actually come true?',
+    },
+    {
+      id: 'anxiety-5',
+      text: 'What small step can you take today despite the anxiety?',
     },
   ],
   fear: [
