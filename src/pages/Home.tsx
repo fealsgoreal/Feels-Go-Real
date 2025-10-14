@@ -8,7 +8,8 @@ import ProgressStats from '@/components/ProgressStats';
 import ContestSelector from '@/components/ContestSelector';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
-import { Sparkles, Info } from 'lucide-react';
+import { Info } from 'lucide-react';
+import logo from '@/assets/logo.png';
 
 const Home = () => {
   const [progress, setProgress] = useState<UserProgress | null>(null);
@@ -28,9 +29,7 @@ const Home = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="p-2 gradient-primary rounded-lg">
-                <Sparkles className="w-6 h-6 text-white" />
-              </div>
+              <img src={logo} alt="Feels Go Real Logo" className="w-12 h-12 rounded-lg" />
               <div>
                 <h1 className="text-2xl font-bold">Feels Go Real</h1>
                 <p className="text-sm text-muted-foreground">Your emotional growth journey</p>

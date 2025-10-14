@@ -1,4 +1,5 @@
 import { Sparkles, Target, Trophy, Zap } from 'lucide-react';
+import logo from '@/assets/logo.png';
 
 const About = () => {
   return (
@@ -7,9 +8,7 @@ const About = () => {
       <header className="border-b bg-card/50 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center gap-3">
-            <div className="p-2 gradient-primary rounded-lg">
-              <Sparkles className="w-6 h-6 text-white" />
-            </div>
+            <img src={logo} alt="Feels Go Real Logo" className="w-12 h-12 rounded-lg" />
             <div>
               <h1 className="text-2xl font-bold">About Feels Go Real</h1>
               <p className="text-sm text-muted-foreground">Your emotional growth platform</p>
