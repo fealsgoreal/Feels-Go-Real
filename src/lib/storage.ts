@@ -1,8 +1,9 @@
-import { UserProgress, ContestMode, ZoneType } from '@/types/zone';
+import { UserProgress, ZoneType } from '@/types/zone';
+import { ProgressHistory, ProgressEntry } from '@/types/progress-history';
 
 const STORAGE_KEYS = {
   PROGRESS: 'feels_go_real_progress',
-  CONTEST: 'feels_go_real_contest'
+  PROGRESS_HISTORY: 'feels_go_real_progress_history'
 };
 
 export const loadProgress = (): UserProgress | null => {
@@ -54,30 +55,47 @@ export const updateZoneProgress = (zoneId: ZoneType, coinsEarned: number, points
   progress.totalCoins += coinsEarned;
   progress.totalPoints += pointsEarned;
   saveProgress(progress);
-};
-
-export const loadContest = (): ContestMode | null => {
-  try {
-    const data = localStorage.getItem(STORAGE_KEYS.CONTEST);
-    return data ? JSON.parse(data) : null;
-  } catch (error) {
-    console.error('Failed to load contest:', error);
-    return null;
+  
+  // Record progress history
+  if (pointsEarned > 0) {
+    addProgressEntry(zoneId, pointsEarned);
   }
 };
 
-export const saveContest = (contest: ContestMode): void => {
+export const loadProgressHistory = (): ProgressHistory => {
   try {
-    localStorage.setItem(STORAGE_KEYS.CONTEST, JSON.stringify(contest));
+    const data = localStorage.getItem(STORAGE_KEYS.PROGRESS_HISTORY);
+    return data ? JSON.parse(data) : { entries: [] };
   } catch (error) {
-    console.error('Failed to save contest:', error);
+    console.error('Failed to load progress history:', error);
+    return { entries: [] };
   }
 };
+
+export const saveProgressHistory = (history: ProgressHistory): void => {
+  try {
+    localStorage.setItem(STORAGE_KEYS.PROGRESS_HISTORY, JSON.stringify(history));
+  } catch (error) {
+    console.error('Failed to save progress history:', error);
+  }
+};
+
+export const addProgressEntry = (zoneId: ZoneType, points: number): void => {
+  const history = loadProgressHistory();
+  const entry: ProgressEntry = {
+    date: new Date().toISOString(),
+    zoneId,
+    points
+  };
+  history.entries.push(entry);
+  saveProgressHistory(history);
+};
+
 
 export const downloadProgress = (): void => {
   const progress = loadProgress();
-  const contest = loadContest();
-  const data = { progress, contest, exportDate: new Date().toISOString() };
+  const history = loadProgressHistory();
+  const data = { progress, history, exportDate: new Date().toISOString() };
   
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);

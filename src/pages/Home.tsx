@@ -5,7 +5,7 @@ import { zones } from '@/lib/zones';
 import { loadProgress, initializeProgress } from '@/lib/storage';
 import ZoneCard from '@/components/ZoneCard';
 import ProgressStats from '@/components/ProgressStats';
-import ContestSelector from '@/components/ContestSelector';
+import ProgressChart from '@/components/ProgressChart';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { Info } from 'lucide-react';
@@ -45,9 +45,9 @@ const Home = () => {
           <ProgressStats progress={progress} />
         </div>
 
-        {/* Contest Section */}
+        {/* Progress Tracker */}
         <div className="mb-8">
-          <ContestSelector />
+          <ProgressChart />
         </div>
 
         {/* About Button */}
