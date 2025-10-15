@@ -2,16 +2,13 @@ import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { TrendingUp } from 'lucide-react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { zones } from '@/lib/zones';
 import { loadProgressHistory } from '@/lib/storage';
 import { ZoneType } from '@/types/zone';
 
 const ProgressChart = () => {
   const [selectedMonths, setSelectedMonths] = useState<number>(1);
-  const [selectedZones, setSelectedZones] = useState<Set<ZoneType>>(
-    new Set(['anger', 'jealousy', 'pride', 'anxiety', 'fear'])
-  );
 
   const progressHistory = loadProgressHistory();
 
@@ -26,44 +23,27 @@ const ProgressChart = () => {
       return entryDate >= startDate && entryDate <= now;
     });
 
-    // Group by date and zone
-    const groupedByDate = new Map<string, Record<ZoneType, number>>();
+    // Group by zone
+    const groupedByZone: Record<ZoneType, number> = {
+      anger: 0,
+      jealousy: 0,
+      pride: 0,
+      anxiety: 0,
+      fear: 0
+    };
 
     filteredEntries.forEach(entry => {
-      const dateKey = entry.date.split('T')[0]; // Get just the date part
-      if (!groupedByDate.has(dateKey)) {
-        groupedByDate.set(dateKey, {
-          anger: 0,
-          jealousy: 0,
-          pride: 0,
-          anxiety: 0,
-          fear: 0
-        });
-      }
-      const dayData = groupedByDate.get(dateKey)!;
-      dayData[entry.zoneId] += entry.points;
+      groupedByZone[entry.zoneId] += entry.points;
     });
 
-    // Convert to array and sort by date
-    return Array.from(groupedByDate.entries())
-      .map(([date, zoneData]) => ({
-        date: new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-        ...zoneData
-      }))
-      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    // Convert to array format for chart
+    return zones.map(zone => ({
+      emotion: zone.name,
+      points: Math.min(groupedByZone[zone.id], 10), // Cap at 10
+      icon: zone.icon,
+      color: zone.color
+    }));
   }, [progressHistory, selectedMonths]);
-
-  const toggleZone = (zoneId: ZoneType) => {
-    setSelectedZones(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(zoneId)) {
-        newSet.delete(zoneId);
-      } else {
-        newSet.add(zoneId);
-      }
-      return newSet;
-    });
-  };
 
   const monthOptions = [
     { value: 1, label: '1 Month' },
@@ -72,12 +52,12 @@ const ProgressChart = () => {
     { value: 12, label: '1 Year' }
   ];
 
-  const zoneColors: Record<ZoneType, string> = {
-    anger: '#ef4444',
-    jealousy: '#10b981',
-    pride: '#8b5cf6',
-    anxiety: '#f59e0b',
-    fear: '#3b82f6'
+  const zoneColors: Record<string, string> = {
+    'Anger': '#ef4444',
+    'Jealousy': '#10b981',
+    'Pride': '#8b5cf6',
+    'Anxiety': '#f59e0b',
+    'Fear': '#3b82f6'
   };
 
   return (
@@ -106,39 +86,22 @@ const ProgressChart = () => {
         </div>
       </div>
 
-      {/* Zone Filter */}
-      <div className="mb-6">
-        <p className="text-sm text-muted-foreground mb-3">Filter by Emotion</p>
-        <div className="flex gap-2 flex-wrap">
-          {zones.map(zone => (
-            <Button
-              key={zone.id}
-              variant={selectedZones.has(zone.id) ? 'default' : 'outline'}
-              size="sm"
-              onClick={() => toggleZone(zone.id)}
-              className="gap-2"
-            >
-              <span>{zone.icon}</span>
-              {zone.name}
-            </Button>
-          ))}
-        </div>
-      </div>
-
       {/* Chart */}
       <div className="h-[400px] w-full">
         {chartData.length > 0 ? (
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={chartData}>
+            <BarChart data={chartData}>
               <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
               <XAxis 
-                dataKey="date" 
+                dataKey="emotion" 
                 className="text-xs"
                 tick={{ fill: 'hsl(var(--muted-foreground))' }}
               />
               <YAxis 
+                domain={[0, 10]}
                 className="text-xs"
                 tick={{ fill: 'hsl(var(--muted-foreground))' }}
+                label={{ value: 'Points', angle: -90, position: 'insideLeft' }}
               />
               <Tooltip 
                 contentStyle={{
@@ -147,22 +110,12 @@ const ProgressChart = () => {
                   borderRadius: '8px'
                 }}
               />
-              <Legend />
-              {zones.map(zone => (
-                selectedZones.has(zone.id) && (
-                  <Line
-                    key={zone.id}
-                    type="monotone"
-                    dataKey={zone.id}
-                    name={zone.name}
-                    stroke={zoneColors[zone.id]}
-                    strokeWidth={2}
-                    dot={{ r: 4 }}
-                    activeDot={{ r: 6 }}
-                  />
-                )
-              ))}
-            </LineChart>
+              <Bar 
+                dataKey="points" 
+                fill="hsl(var(--primary))"
+                radius={[8, 8, 0, 0]}
+              />
+            </BarChart>
           </ResponsiveContainer>
         ) : (
           <div className="h-full flex items-center justify-center text-muted-foreground">

@@ -8,11 +8,13 @@ import ProgressStats from '@/components/ProgressStats';
 import ProgressChart from '@/components/ProgressChart';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
-import { Info } from 'lucide-react';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { Info, ChevronDown, TrendingUp } from 'lucide-react';
 import logo from '@/assets/logo.png';
 
 const Home = () => {
   const [progress, setProgress] = useState<UserProgress | null>(null);
+  const [isProgressOpen, setIsProgressOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -47,7 +49,24 @@ const Home = () => {
 
         {/* Progress Tracker */}
         <div className="mb-8">
-          <ProgressChart />
+          <Collapsible open={isProgressOpen} onOpenChange={setIsProgressOpen}>
+            <CollapsibleTrigger asChild>
+              <Button 
+                variant="outline" 
+                className="w-full justify-between mb-4"
+                size="lg"
+              >
+                <span className="flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5" />
+                  Progress Tracker
+                </span>
+                <ChevronDown className={`w-5 h-5 transition-transform ${isProgressOpen ? 'rotate-180' : ''}`} />
+              </Button>
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <ProgressChart />
+            </CollapsibleContent>
+          </Collapsible>
         </div>
 
         {/* About Button */}
