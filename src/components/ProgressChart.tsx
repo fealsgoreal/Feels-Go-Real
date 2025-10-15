@@ -112,9 +112,16 @@ const ProgressChart = () => {
               />
               <Bar 
                 dataKey="points" 
-                fill="hsl(var(--primary))"
                 radius={[8, 8, 0, 0]}
-              />
+                fill="#8884d8"
+              >
+                {chartData.map((entry, index) => (
+                  <rect 
+                    key={`cell-${index}`}
+                    fill={zoneColors[entry.emotion]}
+                  />
+                ))}
+              </Bar>
             </BarChart>
           </ResponsiveContainer>
         ) : (
