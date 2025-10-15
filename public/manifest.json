@@ -1,7 +1,7 @@
 {
-  "name": "Feels Go Real - Your Emotional Growth Journey",
-  "short_name": "Feels Go Real",
-  "description": "Navigate your emotions through 5 zones: Anger, Jealousy, Pride, Anxiety, and Fear. Track progress, earn coins, and grow.",
+  "name": "Zone Quest - Learning Adventure",
+  "short_name": "Zone Quest",
+  "description": "Embark on a gamified learning journey through 5 unique zones",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
