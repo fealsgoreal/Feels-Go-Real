@@ -4,89 +4,89 @@ export const zoneQuestions: Record<ZoneType, Question[]> = {
   anger: [
     {
       id: 'anger-1',
-      text: 'What triggers your anger most frequently?',
+      text: 'What made you mad recently?',
     },
     {
       id: 'anger-2',
-      text: 'How do you express anger in healthy ways?',
+      text: 'Why did it make you mad?',
     },
     {
       id: 'anger-3',
-      text: 'What have you learned from your anger?',
+      text: 'What exactly did you want?',
     },
     {
       id: 'anger-4',
-      text: 'When was the last time anger helped you set a boundary?',
+      text: 'Why did you want that?',
+    },
+        {
+      id: 'anger-5',
+      text: 'Did getting mad get you what you wanted?',
     },
     {
-      id: 'anger-5',
-      text: 'How can you transform your anger into positive action?',
+      id: 'anger-6',
+      text: 'Is there a better way for you to get the thing you wanted?',
     },
   ],
   jealousy: [
     {
       id: 'jealousy-1',
-      text: 'When do you feel most envious of others?',
+      text: 'What is something/someone you have had jealousy towards recently?',
     },
     {
       id: 'jealousy-2',
-      text: 'How does comparison affect your self-worth?',
+      text: 'What do they have and why do you want it?',
     },
     {
       id: 'jealousy-3',
-      text: 'What would happen if you stopped comparing yourself?',
+      text: 'Is that a need, a desire, or both?',
     },
     {
       id: 'jealousy-4',
-      text: 'What does your jealousy reveal about your deepest desires?',
+      text: 'Could you obtain what they have under the perfect circumstances?',
     },
     {
       id: 'jealousy-5',
-      text: 'How can you celebrate others while honoring your own journey?',
+      text: 'What is something you have that you do not think they have?',
     },
   ],
   pride: [
     {
       id: 'pride-1',
-      text: 'What are you most proud of about yourself?',
+      text: 'What is something where your pride got between you and a goal or opportunity recently?',
     },
     {
       id: 'pride-2',
-      text: 'When does pride become a barrier for you?',
+      text: 'What is the goal or opportunity and why do you want it?',
     },
     {
       id: 'pride-3',
-      text: 'How do you balance confidence with humility?',
+      text: 'Is that a need, a desire, or both?',
     },
     {
       id: 'pride-4',
-      text: 'When has asking for help made you stronger, not weaker?',
-    },
-    {
-      id: 'pride-5',
-      text: 'What would change if you let go of needing to be right?',
+      text: 'Is there something you could get out of the goal or opportunity that would give you more to be prideful about in the future?',
     },
   ],
   anxiety: [
     {
       id: 'anxiety-1',
-      text: 'What worries keep you up at night?',
+      text: 'What is something you have been anxious about recently?',
     },
     {
       id: 'anxiety-2',
-      text: 'How do you calm yourself when anxious?',
+      text: 'What outcome do you want and why?',
     },
     {
       id: 'anxiety-3',
-      text: 'What would life look like without constant worry?',
+      text: 'What outcome do you expect and why?',
     },
     {
       id: 'anxiety-4',
-      text: 'Which of your worries have actually come true?',
+      text: 'What are the consequences of that?',
     },
     {
       id: 'anxiety-5',
-      text: 'What small step can you take today despite the anxiety?',
+      text: 'Would the consequences teach you or show you anything that will be helpful in the future?',
     },
   ],
   fear: [
