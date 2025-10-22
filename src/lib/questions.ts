@@ -8,22 +8,18 @@ export const zoneQuestions: Record<ZoneType, Question[]> = {
     },
     {
       id: 'anger-2',
-      text: 'Why did it make you mad?',
-    },
-    {
-      id: 'anger-3',
       text: 'What exactly did you want?',
     },
     {
-      id: 'anger-4',
+      id: 'anger-3',
       text: 'Why did you want that?',
     },
         {
-      id: 'anger-5',
+      id: 'anger-4',
       text: 'Did getting mad get you what you wanted?',
     },
     {
-      id: 'anger-6',
+      id: 'anger-5',
       text: 'Is there a better way for you to get the thing you wanted?',
     },
   ],
@@ -56,14 +52,18 @@ export const zoneQuestions: Record<ZoneType, Question[]> = {
     },
     {
       id: 'pride-2',
-      text: 'What is the goal or opportunity and why do you want it?',
+      text: 'What were you prideful about?',
     },
     {
       id: 'pride-3',
-      text: 'Is that a need, a desire, or both?',
+      text: 'What is the goal or opportunity and why do you want it?',
     },
     {
       id: 'pride-4',
+      text: 'Is that a need, a desire, or both?',
+    },
+    {
+      id: 'pride-5',
       text: 'Is there something you could get out of the goal or opportunity that would give you more to be prideful about in the future?',
     },
   ],

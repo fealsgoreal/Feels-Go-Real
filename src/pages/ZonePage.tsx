@@ -56,6 +56,7 @@ const ZonePage = () => {
   };
 
   const progress = ((currentQuestion + 1) / questions.length) * 100;
+  const isLastQuestion = currentQuestion === questions.length - 1;
 
   return (
     <div className="min-h-screen bg-background">
@@ -70,7 +71,7 @@ const ZonePage = () => {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Exit (No Points)
           </Button>
-          
+
           <div className="flex items-center gap-4 mb-6">
             <div className="text-6xl">{zone.icon}</div>
             <div>
@@ -99,10 +100,20 @@ const ZonePage = () => {
           </div>
 
           <Card className="p-8">
-            <h2 className="text-2xl font-bold mb-6">{questions[currentQuestion].text}</h2>
+            <h2 className="text-2xl font-bold mb-6">
+              {questions[currentQuestion].text}
+            </h2>
 
             <div className="mb-8 p-6 bg-muted/50 rounded-lg text-center">
-              <p className="text-lg text-muted-foreground italic">Answer in your head</p>
+              <p className="text-lg text-muted-foreground italic">
+                Answer in your head
+                {currentQuestion !== 0 && (
+                  <>
+                    <br />
+                    (If you can’t come up with an answer now, it’s OK. Proceed)
+                  </>
+                )}
+              </p>
             </div>
 
             <div className="flex justify-end">
@@ -111,7 +122,9 @@ const ZonePage = () => {
                 size="lg"
                 className={zone.gradient}
               >
-                When ready, click next
+                {isLastQuestion
+                  ? 'When ready, click Exit to get your point'
+                  : 'When ready, click Next'}
               </Button>
             </div>
           </Card>

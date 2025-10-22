@@ -1,7 +1,7 @@
 {
-  "name": "Zone Quest - Learning Adventure",
-  "short_name": "Zone Quest",
-  "description": "Embark on a gamified learning journey through 5 unique zones",
+  "name": "Feels Go Real",
+  "short_name": "Feels Go Real",
+  "description": "Your Path To Emotion Control",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -9,13 +9,13 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "/logo.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icon-512.png",
+      "src": "/logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

@@ -34,7 +34,7 @@ const Home = () => {
               <img src={logo} alt="Feels Go Real Logo" className="w-12 h-12 rounded-lg" />
               <div>
                 <h1 className="text-2xl font-bold">Feels Go Real</h1>
-                <p className="text-sm text-muted-foreground">Your emotional growth journey</p>
+                <p className="text-sm text-muted-foreground">Your Path To Emotion Control</p>
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@ const Home = () => {
               >
                 <span className="flex items-center gap-2">
                   <TrendingUp className="w-5 h-5" />
-                  Progress Tracker
+                  Control Progress Tracker
                 </span>
                 <ChevronDown className={`w-5 h-5 transition-transform ${isProgressOpen ? 'rotate-180' : ''}`} />
               </Button>

@@ -11,7 +11,7 @@ const About = () => {
             <img src={logo} alt="Feels Go Real Logo" className="w-12 h-12 rounded-lg" />
             <div>
               <h1 className="text-2xl font-bold">About Feels Go Real</h1>
-              <p className="text-sm text-muted-foreground">Your emotional growth platform</p>
+              <p className="text-sm text-muted-foreground">Your Path To Emotion Control</p>
             </div>
           </div>
         </div>
@@ -23,76 +23,9 @@ const About = () => {
           <section className="prose dark:prose-invert max-w-none">
             <h2 className="text-3xl font-bold mb-4">Welcome to Feels Go Real</h2>
             <p className="text-lg text-muted-foreground">
-              Feels Go Real is an emotional growth platform designed to help you navigate and understand 
-              your emotions. Journey through five emotional zones: Anger, Jealousy, Pride, Anxiety, and Fear. 
-              Complete reflective challenges, earn coins, and track your personal growth along the way.
+              What if you could strategically use your emotions to create the best life experience possible? What if that argument that got you mad earlier didn’t leave you overthinking about what you should have said differently? What if that upcoming thing you’re worried about wasn’t stopping you from enjoying your life in the moment right now?<br></br>
+              Feels Go Real is a platform that helps you strengthen your ability to control emotions so you can better control your life. Life is hard, but having more emotional awareness allows you to use your emotion's power to pick the right goals for yourself and achieve them.<br></br> The platform uses short self-questionnaires so you can get your thoughts out at your own pace, and a point tracking system that allows you to see and feel your growth in action. Get on the app, enter a zone, and follow the prompts to get your points. If your emotions are holding you back from living the happiest life you want to live, using this app is the right decision.
             </p>
-          </section>
-
-          {/* Features */}
-          <section>
-            <h2 className="text-2xl font-bold mb-6">Key Features</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="border rounded-lg p-6 bg-card">
-                <div className="flex items-start gap-4">
-                  <div className="p-2 gradient-primary rounded-lg">
-                    <Target className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-2">Emotional Zones</h3>
-                    <p className="text-muted-foreground">
-                      Navigate five emotional zones, each with reflective questions and exercises 
-                      designed to deepen your self-awareness and emotional intelligence.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="border rounded-lg p-6 bg-card">
-                <div className="flex items-start gap-4">
-                  <div className="p-2 gradient-primary rounded-lg">
-                    <Trophy className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-2">Contest Mode</h3>
-                    <p className="text-muted-foreground">
-                      Challenge yourself with timed growth challenges in 1-month, 6-month, or 1-year formats. 
-                      Earn points and track your emotional growth toward specific goals.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="border rounded-lg p-6 bg-card">
-                <div className="flex items-start gap-4">
-                  <div className="p-2 gradient-primary rounded-lg">
-                    <Zap className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-2">Progress Tracking</h3>
-                    <p className="text-muted-foreground">
-                      Monitor your achievements with detailed statistics including total points, 
-                      current streak, and completion rates for each zone.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="border rounded-lg p-6 bg-card">
-                <div className="flex items-start gap-4">
-                  <div className="p-2 gradient-primary rounded-lg">
-                    <Sparkles className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-2">Local Progress</h3>
-                    <p className="text-muted-foreground">
-                      Your progress is automatically saved in your browser, so you can pick up 
-                      right where you left off.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </section>
 
           {/* How it Works */}
@@ -105,7 +38,7 @@ const About = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Choose Your Zone</h3>
-                  <p>Select from five emotional zones based on what you're experiencing or want to explore.</p>
+                  <p>Select from five emotion zones based on what you're experiencing or want to explore.</p>
                 </div>
               </div>
 
@@ -115,7 +48,7 @@ const About = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Answer Reflective Questions</h3>
-                  <p>Work through thought-provoking questions at your own pace to deepen self-understanding.</p>
+                  <p>Answer 5 thought-provoking questions at your own pace to deepen self-understanding.</p>
                 </div>
               </div>
 
@@ -124,8 +57,8 @@ const About = () => {
                   3
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">Join Contests</h3>
-                  <p>Optionally participate in timed contests to push yourself and earn bonus points.</p>
+                  <h3 className="font-semibold text-foreground mb-1">Track Progress</h3>
+                  <p>Monitor your achievements, compare zones, and celebrate your growth.</p>
                 </div>
               </div>
 
@@ -134,11 +67,28 @@ const About = () => {
                   4
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">Track Progress</h3>
-                  <p>Monitor your achievements, maintain your streak, and celebrate your growth.</p>
+                  <h3 className="font-semibold text-foreground mb-1">Install App</h3>
+                  <p>To install the app:</p>
+                  <ul>
+                    <li><strong>On mobile:</strong> Tap the browser menu (Share on iPhone, menu on Android) → <em>Add to Home Screen</em></li>
+                    <li><strong>On desktop:</strong> Look for the install icon in the address bar</li>
+                    <li>Works offline after installation</li>
+                    <li>Loads instantly like a native app</li>
+                  </ul>
                 </div>
               </div>
             </div>
+          </section>
+
+          {/* Disclaimer Section */}
+          <section className="border-t pt-8 text-center">
+            <h2 className="text-xl font-bold mb-3 text-foreground">Disclaimer</h2>
+            <p className="text-muted-foreground text-base leading-relaxed">
+              <strong>This App isn't the same thing as therapy.</strong> <br />
+              The advice in this app is intended for general information purposes only. 
+              Please don't rely upon this information in the same way you would a medical professional, 
+              as it's not a substitute for medical advice tailored to your individual situation and circumstances.
+            </p>
           </section>
 
           {/* Footer */}

@@ -2,15 +2,31 @@ import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { TrendingUp } from 'lucide-react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { 
+  BarChart, 
+  Bar, 
+  XAxis, 
+  YAxis, 
+  CartesianGrid, 
+  Tooltip, 
+  ResponsiveContainer, 
+  Cell 
+} from 'recharts';
 import { zones } from '@/lib/zones';
 import { loadProgressHistory } from '@/lib/storage';
 import { ZoneType } from '@/types/zone';
 
 const ProgressChart = () => {
   const [selectedMonths, setSelectedMonths] = useState<number>(1);
-
   const progressHistory = loadProgressHistory();
+
+  const zoneColors: Record<string, string> = {
+    'Anger': '#f70c0c',
+    'Jealousy': '#f7b40cff',
+    'Pride': '#f7f30cff',
+    'Anxiety': '#8911daff',
+    'Fear': '#196004ff'
+  };
 
   const chartData = useMemo(() => {
     const now = new Date();
@@ -41,7 +57,7 @@ const ProgressChart = () => {
       emotion: zone.name,
       points: Math.min(groupedByZone[zone.id], 10), // Cap at 10
       icon: zone.icon,
-      color: zone.color
+      color: zoneColors[zone.name] || '#3b82f6'
     }));
   }, [progressHistory, selectedMonths]);
 
@@ -51,14 +67,6 @@ const ProgressChart = () => {
     { value: 6, label: '6 Months' },
     { value: 12, label: '1 Year' }
   ];
-
-  const zoneColors: Record<string, string> = {
-    'Anger': '#ef4444',
-    'Jealousy': '#10b981',
-    'Pride': '#8b5cf6',
-    'Anxiety': '#f59e0b',
-    'Fear': '#3b82f6'
-  };
 
   return (
     <Card className="p-6">
@@ -98,7 +106,7 @@ const ProgressChart = () => {
                 tick={{ fill: 'hsl(var(--muted-foreground))' }}
               />
               <YAxis 
-                domain={[0, 10]}
+                domain={[0, 100]}
                 className="text-xs"
                 tick={{ fill: 'hsl(var(--muted-foreground))' }}
                 label={{ value: 'Points', angle: -90, position: 'insideLeft' }}
@@ -110,11 +118,34 @@ const ProgressChart = () => {
                   borderRadius: '8px'
                 }}
               />
+
+              {/* Gradient Definitions */}
+              <defs>
+                {chartData.map(entry => {
+                  const id = `gradient-${entry.emotion.toLowerCase().replace(/\s+/g, '-')}`;
+                  return (
+                    <linearGradient key={id} id={id} x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor={entry.color} stopOpacity={0.95} />
+                      <stop offset="100%" stopColor={entry.color} stopOpacity={0.45} />
+                    </linearGradient>
+                  );
+                })}
+              </defs>
+
+              {/* Bars with Gradient + Animation */}
               <Bar 
-                dataKey="points" 
-                fill="hsl(var(--primary))"
+                dataKey="points"
                 radius={[8, 8, 0, 0]}
-              />
+                isAnimationActive={true}
+                animationBegin={200}
+                animationDuration={1000}
+                animationEasing="ease-in-out"
+              >
+                {chartData.map((entry, index) => {
+                  const id = `gradient-${entry.emotion.toLowerCase().replace(/\s+/g, '-')}`;
+                  return <Cell key={`cell-${index}`} fill={`url(#${id})`} />;
+                })}
+              </Bar>
             </BarChart>
           </ResponsiveContainer>
         ) : (

@@ -6,7 +6,7 @@ export const zones: Zone[] = [
     name: 'Anger',
     color: 'zone-anger',
     gradient: 'gradient-anger',
-    icon: '😠',
+    icon: '😡',
     description: 'Transform rage into power'
   },
   {
