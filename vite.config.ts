@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // ✅ Add this section
+  // ✅ Added section for About Page
   optimizeDeps: {
     include: ["react", "react-dom", "react-router-dom"],
   },
