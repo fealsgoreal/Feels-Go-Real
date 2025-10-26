@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { UserProgress } from '@/types/zone';
 import { zones } from '@/lib/zones';
 import { loadProgress, initializeProgress } from '@/lib/storage';
@@ -69,15 +69,13 @@ const Home = () => {
           </Collapsible>
         </div>
 
-        {/* About Button */}
+        {/* About Button (Fixed) */}
         <div className="mb-8 flex justify-center">
-          <Button
-            variant="outline"
-            onClick={() => window.open('/about', '_blank')}
-            className="gap-2"
-          >
-            <Info className="w-4 h-4" />
-            About Feels Go Real
+          <Button asChild variant="outline" className="gap-2">
+            <Link to="/about" className="flex items-center gap-2">
+              <Info className="w-4 h-4" />
+              About Feels Go Real
+            </Link>
           </Button>
         </div>
 
