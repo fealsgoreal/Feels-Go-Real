@@ -5,18 +5,22 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/", // ✅ ensures correct routing paths
+  base: "/", // ✅ Ensures proper base path for SPA
   server: {
     host: "::",
     port: 8080,
   },
   build: {
-    outDir: "dist", // ✅ tells Vite where to place build files
+    outDir: "dist",
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  // ✅ Add this section
+  optimizeDeps: {
+    include: ["react", "react-dom", "react-router-dom"],
   },
 }));
