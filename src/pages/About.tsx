@@ -23,8 +23,10 @@ const About = () => {
           <section className="prose dark:prose-invert max-w-none">
             <h2 className="text-3xl font-bold mb-4">Welcome to Feels Go Real</h2>
             <p className="text-lg text-muted-foreground">
-              What if you could strategically use your emotions to create the best life experience possible? What if that argument that got you mad earlier didn’t leave you overthinking about what you should have said differently? What if that upcoming thing you’re worried about wasn’t stopping you from enjoying your life in the moment right now?<br></br>
-              Feels Go Real is a platform that helps you strengthen your ability to control emotions so you can better control your life. Life is hard, but having more emotional awareness allows you to use your emotion's power to pick the right goals for yourself and achieve them.<br></br> The platform uses short self-questionnaires so you can get your thoughts out at your own pace, and a point tracking system that allows you to see and feel your growth in action. Get on the app, enter a zone, and follow the prompts to get your points. If your emotions are holding you back from living the happiest life you want to live, using this app is the right decision.
+              What if you could strategically use your emotions to create the best life experience possible? What if that argument that got you mad earlier didn’t leave you overthinking about what you should have said differently? What if that upcoming thing you’re worried about wasn’t stopping you from enjoying your life in the moment right now?
+            </p>
+            <p className="text-lg text-muted-foreground mt-4">
+              Feels Go Real is a platform that helps you strengthen your ability to control emotions so you can better control your life. Life is hard, but having more emotional awareness allows you to use your emotion's power to pick the right goals for yourself and achieve them. The platform uses short self-questionnaires so you can get your thoughts out at your own pace, and a point tracking system that allows you to see and feel your growth in action. Get on the app, enter a zone, and follow the prompts to get your points. If your emotions are holding you back from living the happiest life you want to live, using this app is the right decision.
             </p>
           </section>
 
@@ -94,7 +96,7 @@ const About = () => {
           {/* Footer */}
           <section className="text-center pt-8 border-t">
             <p className="text-muted-foreground">
-              Ready to start your emotional growth journey? Head back to the{' '}
+              Ready to start your emotional control journey? Head back to the{' '}
               <a href="/" className="text-primary hover:underline font-semibold">
                 home page
               </a>{' '}
